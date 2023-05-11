@@ -11,3 +11,4 @@ function affiche (canapes) {
         section.innerHTML += `<h3>${element.name}</h3>`  
     });
 }
+
