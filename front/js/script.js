@@ -8,7 +8,7 @@ function affiche (canapes) {
     console.log (canapes);
     const container = document.getElementById ("items") 
     canapes.forEach(element => {
-        container.innerHTML += `<a href="./product.html?id=42">
+        container.innerHTML += `<a href="./product.html?id="${element._id}"">
         <article>
           <img src="${element.imageUrl}" alt="${element.altTxt}">
           <h3 class="productName">${element.name}</h3>
@@ -17,6 +17,12 @@ function affiche (canapes) {
       </a>`  
     });
 }
+
+
+
+
+
+
 
 
 // fetch("http://127.0.0.1:3000/api/products")
