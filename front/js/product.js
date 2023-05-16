@@ -37,3 +37,15 @@ const getArticle = () => {
 getArticle();
 
 
+// creation d'une variable qui gére les paniers
+ const addToCard = document.getElementById("addToCard");
+
+//Création d'un événement qui écoute le "clic" sur le bouton du panier
+ addToCard.addEventListener("click", () => {
+     const addProduct =  {
+        quantity : document.getElementById("quantity").value,
+        color : document.getElementById("colors").value,
+        id : id,
+    }})
+
+
