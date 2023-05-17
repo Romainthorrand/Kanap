@@ -13,7 +13,6 @@ const getArticle = () => {
         return res.json()
     })
     .then(function(data){
-        console.log(data);
 
         // Ajout des titre,description, prix et image des canapés dans les pages produit
         const title = document.getElementById("title").innerHTML = data.name;
@@ -38,14 +37,31 @@ getArticle();
 
 
 // creation d'une variable qui gére les paniers
- const addToCard = document.getElementById("addToCard");
+ const addToCart = document.getElementById("addToCart");
 
 //Création d'un événement qui écoute le "clic" sur le bouton du panier
- addToCard.addEventListener("click", () => {
+ addToCart.addEventListener("click", () => {
+    // addProduct est un objet qui contiend les choix de l'utilisateur
      const addProduct =  {
         quantity : document.getElementById("quantity").value,
         color : document.getElementById("colors").value,
         id : id,
-    }})
+    }
+
+console.log(addToCart);
+
+addProductToLocalStorage = []
+    if (localStorage.getItem("addToCard") !== null){
+        addProductToLocalStorage = JSON.parse(localStorage.getItem("addToCart"));
+        addProductToLocalStorage.push(addToCart);
+        localStorage.setItem("addToCart",JSON.stringify(addProductToLocalStorage));
+
+    } else {
+        addProductToLocalStorage.push(addProduct);
+        localStorage.setItem("addToCart",JSON.stringify(addProductToLocalStorage));
+    }
+
+
+})
 
 
