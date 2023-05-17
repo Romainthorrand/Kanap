@@ -48,15 +48,19 @@ getArticle();
         id : id,
     }
 
-console.log(addToCart);
-
+//Gestion du localStorage, création d'un tableau
 addProductToLocalStorage = []
-    if (localStorage.getItem("addToCard") !== null){
+//Si le localStorage contient des données
+    if (localStorage.getItem("addToCart") !== null){
+        //Convertire le JSON en objet
         addProductToLocalStorage = JSON.parse(localStorage.getItem("addToCart"));
+        //Ajouter le nouvel élement à notre tableau
         addProductToLocalStorage.push(addToCart);
+        //Stocker une nouvelle fois le tableau dans le localStorage
         localStorage.setItem("addToCart",JSON.stringify(addProductToLocalStorage));
-
+//Si le localStorage est vide
     } else {
+    //Si le localStorage ne contiend pas de données
         addProductToLocalStorage.push(addProduct);
         localStorage.setItem("addToCart",JSON.stringify(addProductToLocalStorage));
     }
