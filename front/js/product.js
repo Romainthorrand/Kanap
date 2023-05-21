@@ -3,7 +3,7 @@ const params = new URL(document.location).searchParams
 const id = params.get("id")
 
 // Recherche des url de chaques canapés en fonction des id
-const url = `http://127.0.0.1:3000/api/products/${id}`;
+const url = `http://localhost:3000/api/products/${id}`;
 
 
 // Récuperation de chaque canapé par fetch
@@ -50,19 +50,21 @@ getArticle();
 
 //Gestion du localStorage, création d'un tableau
 addProductToLocalStorage = []
-//Si le localStorage contient des données
+//Si le localStorage contient des données (n'est pas "null")
     if (localStorage.getItem("addToCart") !== null){
-        //Convertire le JSON en objet
+        //Convertire le JSON en objet et ajouter a "addToCart"
         addProductToLocalStorage = JSON.parse(localStorage.getItem("addToCart"));
         //Ajouter le nouvel élement à notre tableau
         addProductToLocalStorage.push(addToCart);
         //Stocker une nouvelle fois le tableau dans le localStorage
         localStorage.setItem("addToCart",JSON.stringify(addProductToLocalStorage));
+        console.log(addProductToLocalStorage);
 //Si le localStorage est vide
     } else {
-    //Si le localStorage ne contiend pas de données
+    //Envoyé les données vers "addProduct"
         addProductToLocalStorage.push(addProduct);
         localStorage.setItem("addToCart",JSON.stringify(addProductToLocalStorage));
+        console.log(addProductToLocalStorage);
     }
 
 

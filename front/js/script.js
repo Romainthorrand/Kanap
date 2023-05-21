@@ -1,5 +1,5 @@
 // Recupération de toutes les infos des canapés à aprtir de l'API
-fetch("http://127.0.0.1:3000/api/products")
+fetch("http://localhost:3000/api/products")
 .then (response => response.json ())
 .then (data => { affiche (data) })
 .catch(error => { console.log("Erreur: ", error)})
